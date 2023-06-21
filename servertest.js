@@ -156,7 +156,7 @@ app.post('/webhook', (req, res) => {
       });
     }
   } else if (side === 'SELL') {
-    Ignore the sell order if no buy order has been executed yet
+    //Ignore the sell order if no buy order has been executed yet
     if (filledQuantity === null) {
       console.log('No buy order has been executed yet. Ignoring the sell order.');
       return;
