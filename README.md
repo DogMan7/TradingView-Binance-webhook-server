@@ -21,6 +21,7 @@ The server listens for POST requests at the /webhook endpoint. Each request shou
 
 the format for the webhook is - https://Your-Domain/webhook
 
+..............................................................................................................................................................................................................................................................
 
 The server verifies the password in the request for authentication.
 
@@ -89,8 +90,7 @@ Node.js:   This project is written in JavaScript and runs on Node.js. You need t
 
 NPM Packages:   The project uses several NPM packages including express, axios, crypto, body-parser, moment, winston, querystring, and https. These can be installed by running npm install in the project directory.
 
-Binance API Key and Secret:   You need to have a Binance API key and secret to interact with the Binance API. These can be obtained from your Binance account.
-
+Binance API Key and Secret:   You need to have a Binance API key and secret to interact with the Binance API. These can be obtained from your Binance account. when you make them make your keys on binance spot make sure you limit them to your servers ip address  
 Server:   You need a server to host your application. This could be a local server or a cloud-based server.
 
 Domain:   you'll need a domain name that resolves to your server for the webhooks
@@ -99,10 +99,14 @@ Nginx:   Nginx is a web server that can be used to serve your application. It's 
 
 SSL Certificate:   The project is set up to use HTTPS for secure communication. For this, you'll need an SSL certificate. This can be obtained from a Certificate Authority (CA). Some providers offer free certificates, like Let's Encrypt.   https://letsencrypt.org/
 
+A Paid Trading View Account- the cheapest tier is fine  
+
 .....................................................................................................................................................................................................................................................
 
 If you want to use it to fire webhooks from trading view at binance youll need to add a firewall rule to allow these ip addreses through on whatever port your server is running on default is 3000  
-52.89.214.238,   34.212.75.30,   54.218.53.128,   52.32.178.7 - here's a link to the info about trading view webhooks check before you add the rules in case the send ip's change:   https://www.tradingview.com/support/solutions/43000529348-about-webhooks/  
+52.89.214.238,   34.212.75.30,   54.218.53.128,   52.32.178.7 - here's a link to the info about trading view webhooks check before you add the rules in case the send ip's change:   https://www.tradingview.com/support/solutions/43000529348-about-webhooks/ 
+
+
 ........................................................................................................................................................................................................................................................
 
 you'll also need to include the paths to your SSL certificate and private key: in your nginx config , something like this 
@@ -143,7 +147,8 @@ there are also a couple of tools that i made along the way  tokenbalances.js  an
  
  instalation
 
- ensure you have all prerequisites and that your nginx config file has the paths to your SSL certificate and private key properly configured
+
+ensure you have all prerequisites and that your nginx config file has the paths to your SSL certificate and private key properly configured
  
 Fork and clone the repository
 
@@ -153,13 +158,38 @@ Install Dependencies: The project uses several Node.js packages. You can install
      
 This command reads the package.json file in the project directory and installs all the listed dependencies.
 
-Configure the Project: Before you can run the project, you need to configure it with your Binance API key and secret.  and your password for the webhooks , These should be entered in the appropriate place in the project's code. -server.js  and your webhook payload must contain the same password in the password field of the server.js file,  Make sure to keep these secure and do not share them with anyone. make sure your nginx is properly configured and allowed though the firewall ,  and that the trading view ip addresses and ports have an incoming rule to allow them through the firewall for the webhooks
+Configure the Project: Before you can run the project, you need to configure it with your Binance API key and secret.  and your password for the webhooks , These should be entered in the appropriate place in the project's code. if youre running the test server script you will have to first get test server api keys, if youre running the spot server then youll need api keys from binance.com  and your webhook payload must contain the same password in the password field of the js script that youre running  - either serverspot.js or servertest.js,  Make sure to keep these secure and do not share them with anyone. make sure your nginx is properly configured and allowed though the firewall ,  and that the trading view ip addresses and ports have an incoming rule to allow them through the firewall for the webhooks
 
 Start the Server: Once everything is set up, you can start the server by running:
 
      node server.js
     
-The server is now running and ready to receive and process webhook requests..
+The server is now running and ready to receive and process webhook requests.. you can setup your strategys on Trading view and the Bot will make the trades
+
+create a new alert on trading view -paste the message into the message box on the alert settings tab and  on the notifications tab tick the webhook box and paste the webhook url - https://Your-Domain/webhook into the field and hit save
+here is a short tutorial on how to set up trading view alerts   https://zenandtheartoftrading.com/how-to-set-tradingview-alerts/ 
+
+if you want to run it in the backgound and have the trades log to a file you can run it under pm2 first install pm2 globally  
+
+     npm install -g pm2
+
+and then navigate to the direcory of your server in the command prompt and run either 
+
+    pm2 start serverspot.js
+
+or 
+    pm2 start servertest.js
+
+depending on which script you're running 
+
+this will run it in the background and log to a file
+
+
+
+
+
+
+Happy Trading ! 
  
  
  

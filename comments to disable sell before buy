@@ -1,0 +1,5 @@
+ // Ignore the sell order if no buy order has been executed yet
+    // if (filledQuantity === null) {
+    //   console.log('No buy order has been executed yet. Ignoring the sell order.');
+    //   return;
+    // }
