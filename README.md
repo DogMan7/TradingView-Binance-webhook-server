@@ -159,7 +159,7 @@ Start the Server: Once everything is set up, you can start the server by running
 
      node server.js
     
-The server is now running and ready to receive and process webhook requests.
+The server is now running and ready to receive and process webhook requests..
  
  
  
