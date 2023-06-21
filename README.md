@@ -156,7 +156,7 @@ theres also a tool called tokenbalances.js which is just to pull your token bala
 ............................................................................................................................................................................................................................................................................
 
  
- instalation
+ installation
 
 
 ensure you have all prerequisites and that your nginx config file has the paths to your SSL certificate and private key properly configured
