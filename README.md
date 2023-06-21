@@ -192,9 +192,8 @@ if you want to run it in the backgound and have the trades log to a file you can
 and then navigate to the direcory of your server in the command prompt and run either 
 
     pm2 start serverspot.js
-
 or 
-     pm2 start servertest.js
+    pm2 start servertest.js
 
 depending on which script you're running 
 
