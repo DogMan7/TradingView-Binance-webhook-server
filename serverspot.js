@@ -1,3 +1,4 @@
+
 const express = require('express');
 const axios = require('axios');
 const crypto = require('crypto');
@@ -28,6 +29,7 @@ const logger = winston.createLogger({
     new winston.transports.File({ filename: 'error.log' }) // Log to a file
   ]
 });
+
 
 // Create a new Express application
 const app = express();
@@ -84,6 +86,8 @@ app.post('/webhook', (req, res) => {
           timestamp
         };
 
+       
+
         // Create the signature for the limit order request
         
         const limitOrderQueryString = querystring.stringify(limitOrderData);
@@ -126,6 +130,8 @@ app.post('/webhook', (req, res) => {
         quantity: quantity,
         recvWindow: 5000,
         timestamp: timestamp
+
+    
       };
 
       // Create the signature for your request
@@ -155,10 +161,10 @@ app.post('/webhook', (req, res) => {
     }
   } else if (side === 'SELL') {
     // Ignore the sell order if no buy order has been executed yet
-    if (filledQuantity === null) {
-      console.log('No buy order has been executed yet. Ignoring the sell order.');
-      return;
-    }
+   // if (filledQuantity === null) {
+      //console.log('No buy order has been executed yet. Ignoring the sell order.');
+      //return;
+    //}
 
     // If the filled quantity is less than the quantity specified in the sell order, sell the filled amount
     if (filledQuantity < quantity) {
@@ -222,6 +228,7 @@ app.post('/webhook', (req, res) => {
       // Create the signature for the sell order request
       let queryString = querystring.stringify(data);
       let signature = crypto.createHmac('sha256', API_SECRET).update(queryString).digest('hex');
+    
 
       // Add the signature to the sell order data
       data.signature = signature;
