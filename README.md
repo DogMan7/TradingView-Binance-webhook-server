@@ -5,7 +5,7 @@
 
 
 
-This project is a Node.js server application that interacts with the Binance cryptocurrency exchange's API created using chatGPT prompts . The following config instuctions are specific to a windows server.  The Goal was to Use Trading view pinescript alerts to automate strategys on the binance spot exchange  The server listens for incoming webhook requests and places orders on the Binance exchange based on the details of the request.
+This project is a Node.js server application that interacts with the Binance.com cryptocurrency exchange's API created using chatGPT prompts . The following config instuctions are specific to a windows server.  The Goal was to Use Trading view pinescript alerts to automate strategys on the binance spot exchange  The server listens for incoming webhook requests and places orders on the Binance exchange based on the details of the request.
 
 Here's a brief overview of how it works:
 
@@ -81,7 +81,21 @@ In both cases, the number you multiply currentPrice by is 1 plus or minus the pe
 
 ....................................................................................................................................................................................................................................
 
-for market orders:   Sell orders will not execute a trade unless there has been a previous buy order
+theres a function in the code to prevent sell before buy but its commented out  if you need this function for your strategy you will need to uncomment these lines in the serverspot.js or servertest.js depending which of these you are running 
+
+      else if (side === 'SELL') {
+    // Ignore the sell order if no buy order has been executed yet
+    // if (filledQuantity === null) {
+    //   console.log('No buy order has been executed yet. Ignoring the sell order.');
+    //   return;
+    // }
+
+    // If the filled quantity is less than the quantity specified in the sell order, sell the filled amount
+    if (filledQuantity < quantity) {
+      console.log('The filled quantity is less than the quantity specified in the sell order. Selling the filled amount.');
+      quantity = filledQuantity;
+    }
+
 ....................................................................................................................................................................................................................................
 
 prerequisites for running this project:
