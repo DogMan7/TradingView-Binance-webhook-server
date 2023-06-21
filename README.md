@@ -106,14 +106,15 @@ NPM Packages:   The project uses several NPM packages including express, axios, 
 
     npm install
 
- A Binance.com Account Binance API Key and Secret:   You need to have a Binance API key and secret to interact with the Binance API. These can be obtained from your Binance account. when you make them make your keys on binance spot make sure you limit them to your servers ip address  
+ A Binance.com Account Binance API Key and Secret:   You need to have a Binance API key and secret to interact with the Binance API. These can be obtained from your Binance account. when you make your keys on binance spot make sure you limit them to your servers ip address 
+ 
 Server:   You need a server to host your application. This could be a local server or a cloud-based server.
 
 Domain:   you'll need a domain that resolves to your server for the webhooks
 
 Nginx:   Nginx is a web server that can be used to serve your application. there are others you could use but these config instructions assume youre running nginx. you can download the latest version here   https://nginx.org/en/download.html
 
-SSL Certificate:   The project is set up to use HTTPS for secure communication. For this, you'll need an SSL certificate. This can be obtained from a Certificate Authority (CA). Some providers offer free certificates, like Let's Encrypt.   https://letsencrypt.org/
+SSL Certificate:   The project is set up to use HTTPS for secure communication. For this, you'll need an SSL certificate. you can get one for free at Let's Encrypt.   https://letsencrypt.org/
 
 A Paid Trading View Account- the cheapest tier is fine  
 
