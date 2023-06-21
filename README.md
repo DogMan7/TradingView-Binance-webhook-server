@@ -120,8 +120,11 @@ A Paid Trading View Account- the cheapest tier is fine
 
 .....................................................................................................................................................................................................................................................
 
-If you want to use it to fire webhooks from trading view at binance youll need to add a firewall rule to allow these ip addreses through on whatever port your server is running on default is 3000  
-52.89.214.238,   34.212.75.30,   54.218.53.128,   52.32.178.7 - here's a link to the info about trading view webhooks check before you add the rules in case the send ip's change:   https://www.tradingview.com/support/solutions/43000529348-about-webhooks/ 
+If you want to use it to fire webhooks from trading view at binance youll need to add a firewall rule to allow these ip addreses through on whatever port your server is running on default is 3000
+
+     52.89.214.238   34.212.75.30   54.218.53.128   52.32.178.7 
+     
+here's a link to the info about trading view webhooks check before you add the rules in case the send ip's change:   https://www.tradingview.com/support/solutions/43000529348-about-webhooks/ 
 
 
 ........................................................................................................................................................................................................................................................
