@@ -46,7 +46,7 @@ the project also includes a feature for placing limit orders with a specific str
 
 This strategy is implemented to increase the likelihood of the limit orders being filled. By setting the buy price slightly higher than the current market price, it increases the chances of a seller matching the order. Similarly, by setting the sell price slightly lower than the current market price, it increases the chances of a buyer matching the order.
 
-These percentages are hardcoded in the server code and can be adjusted according to the user's trading strategy. For example, if a user wants to place limit buy orders at a price that is 0.5% above the current market price, they would modify the calculation in the code where the limit price is set for buy orders. 
+These percentages are hardcoded in the server code and can be adjusted according to your trading strategy. For example, if you want to place limit buy orders at a price that is 0.5% above the current market price, you would modify the calculation in the code where the limit price is set for buy orders. 
 The same applies for adjusting the percentage for limit sell orders. these numbers were setup purely for testing and you should adjust them to suit your strategys and the markets that you're trading 
 
 ...........................................................................................................................................................................................................................................................................................................
@@ -104,12 +104,12 @@ Node.js:   This project is written in JavaScript and runs on Node.js. You need t
 
 NPM Packages:   The project uses several NPM packages including express, axios, crypto, body-parser, moment, winston, querystring, and https. These can be installed by running npm install in the project directory.
 
-Binance API Key and Secret:   You need to have a Binance API key and secret to interact with the Binance API. These can be obtained from your Binance account. when you make them make your keys on binance spot make sure you limit them to your servers ip address  
+ A Binance.com Account Binance API Key and Secret:   You need to have a Binance API key and secret to interact with the Binance API. These can be obtained from your Binance account. when you make them make your keys on binance spot make sure you limit them to your servers ip address  
 Server:   You need a server to host your application. This could be a local server or a cloud-based server.
 
-Domain:   you'll need a domain name that resolves to your server for the webhooks
+Domain:   you'll need a domain that resolves to your server for the webhooks
 
-Nginx:   Nginx is a web server that can be used to serve your application. It's not strictly necessary if you're running the server locally or using some hosting platforms, but it's often used in production environments for its efficiency and flexibility. You'll need to have Nginx installed and configured on your server.  https://nginx.org/en/download.html
+Nginx:   Nginx is a web server that can be used to serve your application. there are others you could use but these config instructions assume youre running nginx. you can download the latest version here   https://nginx.org/en/download.html
 
 SSL Certificate:   The project is set up to use HTTPS for secure communication. For this, you'll need an SSL certificate. This can be obtained from a Certificate Authority (CA). Some providers offer free certificates, like Let's Encrypt.   https://letsencrypt.org/
 
@@ -144,18 +144,9 @@ you'll also need to include the paths to your SSL certificate and private key: i
  
 ......................................................................................................................................................................................................................................................... 
  
- the server is currently set up to run on binance testnet,  you can get an api key for the test net here https://testnet.binance.vision/  so that you can test it without using real $$$ , if you want to run it on binance spot exchange you will need to change the Base URL in the code  from
+ theres 2 scrpts you can run, servertest.js  is configured to run on the binance testnet, youll need to get test net api keys and put your key and secret in the place holders before you run it, the other script serverspot.js is configured to run on the Binance.com spot exchange. so youll need to make api keys for 
 
-        const BASE_URL = 'https://testnet.binance.vision';
-
-        to 
-
-        const BASE_URL = 'https://api.binance.com';
-
- and change your testnet api key to a real api key for binance spot 
-
-there are also a couple of tools that i made along the way  tokenbalances.js  and marketsell.js   , the marketsell.js tool is for use on the testnet,  the webhook server is configured to not make a market sell unless there's been a previous market buy, so in the case where you dont have enough of the quoted asset to make a market buy with the strategy you're testing you can use this tool to make a simple market sell of a given asset  to get the quoted asset you need to test  your strategy , btc-usdt for instsance ,  the tokenbalances.js file is just a tool to retrieve token balances from the exchange , again you will need your api keys and secrets in the config of both of these to use them
-
+theres also a tool called tokenbalances.js which is just to pull your token balances from the test net  agai you'll need to add your test net api key and secret to run it
 ............................................................................................................................................................................................................................................................................
 
  
@@ -172,11 +163,16 @@ Install Dependencies: The project uses several Node.js packages. You can install
      
 This command reads the package.json file in the project directory and installs all the listed dependencies.
 
-Configure the Project: Before you can run the project, you need to configure it with your Binance API key and secret.  and your password for the webhooks , These should be entered in the appropriate place in the project's code. if youre running the test server script you will have to first get test server api keys, if youre running the spot server then youll need api keys from binance.com  and your webhook payload must contain the same password in the password field of the js script that youre running  - either serverspot.js or servertest.js,  Make sure to keep these secure and do not share them with anyone. make sure your nginx is properly configured and allowed though the firewall ,  and that the trading view ip addresses and ports have an incoming rule to allow them through the firewall for the webhooks
+Configure the Project:   Before you can run the project, you need to configure it with your Binance API key and secret.  and your password for the webhooks , These should be entered in the appropriate place in the project's code. if youre running the test server script you will have to first get test server api keys, if youre running the spot server then youll need api keys from binance.com  and your webhook payload must contain the same password in the password field of the js script that youre running  - either serverspot.js or servertest.js,  Make sure to keep these secure and do not share them with anyone. make sure your nginx is properly configured in your firewall settings ,  and that the trading view ip addresses and ports have an incoming rule to allow them through the firewall for the webhooks
 
 Start the Server: Once everything is set up, you can start the server by running:
 
-     node server.js
+     node servertest.js   
+or
+
+     Node serverspot.js
+
+     
     
 The server is now running and ready to receive and process webhook requests.. you can setup your strategys on Trading view and the Bot will make the trades
 
@@ -197,9 +193,6 @@ or
 depending on which script you're running 
 
 this will run it in the background and log to a file
-
-
-
 
 
 
