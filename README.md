@@ -81,7 +81,7 @@ In both cases, the number you multiply currentPrice by is 1 plus or minus the pe
 
 ....................................................................................................................................................................................................................................
 
-theres a function in the code to prevent sell before buy but its commented out  if you need this function for your strategy you will need to uncomment these lines in the serverspot.js or servertest.js depending which of these you are running 
+theres a function in the code to prevent sell before buy but its commented out by default.   if you need this function for your strategy you will need to uncomment these lines in the serverspot.js or servertest.js depending which of these you are running 
 
       else if (side === 'SELL') {
     // Ignore the sell order if no buy order has been executed yet
