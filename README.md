@@ -194,7 +194,7 @@ and then navigate to the direcory of your server in the command prompt and run e
     pm2 start serverspot.js
 
 or 
-    pm2 start servertest.js
+     pm2 start servertest.js
 
 depending on which script you're running 
 
