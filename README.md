@@ -1,7 +1,7 @@
 # Binance-webhook-server
 
  
- Webhook server that uses TradingView alerts to automate trading strategies on the Binance spot exchange
+ Webhook server that uses TradingView alerts to automate trading strategies on the Binance.com spot exchange
 
 
 
