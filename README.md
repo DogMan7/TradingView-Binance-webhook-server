@@ -104,6 +104,8 @@ Node.js:   This project is written in JavaScript and runs on Node.js. You need t
 
 NPM Packages:   The project uses several NPM packages including express, axios, crypto, body-parser, moment, winston, querystring, and https. These can be installed by running npm install in the project directory.
 
+    npm install
+
  A Binance.com Account Binance API Key and Secret:   You need to have a Binance API key and secret to interact with the Binance API. These can be obtained from your Binance account. when you make them make your keys on binance spot make sure you limit them to your servers ip address  
 Server:   You need a server to host your application. This could be a local server or a cloud-based server.
 
