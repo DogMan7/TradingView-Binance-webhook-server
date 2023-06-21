@@ -5,7 +5,7 @@
 
 
 
-This project is a Node.js server application that interacts with the Binance.com cryptocurrency exchange's API created using chatGPT prompts . The following config instuctions are specific to a windows server.  The Goal was to Use Trading view pinescript alerts to automate strategys on the binance spot exchange  The server listens for incoming webhook requests and places orders on the Binance exchange based on the details of the request.
+This project is a Node.js server application that interacts with the Binance.com cryptocurrency exchange's API created using ChatGPT prompts . The following config instuctions are specific to a windows server.  The Goal was to Use Trading view pinescript alerts to automate strategys on the binance spot exchange  The server listens for incoming webhook requests and places orders on the Binance exchange based on the details of the request.
 
 Here's a brief overview of how it works:
 
@@ -61,11 +61,10 @@ In this line, 1.002 represents the current market price plus 0.2%. If you want t
 
     if (side === 'BUY') {
     limitPrice = currentPrice * 1.005;
-  
+    }
  ..........................................................................................................................................................................
  
   
-}
 For limit sell orders, the relevant code is:
 
     else if (side === 'SELL') {
