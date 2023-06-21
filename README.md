@@ -150,7 +150,7 @@ you'll also need to include the paths to your SSL certificate and private key: i
  
 ......................................................................................................................................................................................................................................................... 
  
- theres 2 scrpts you can run, servertest.js and serverspot.js , servertest.js  is configured to run on the binance testnet, youll need to get test net api keys and put your key and secret in the place holders before you run it, the other script serverspot.js is configured to run on the Binance.com spot exchange. so youll need to make api keys for whatever acount you want your strategys to trade on 
+ theres 2 scrpts you can run, servertest.js and serverspot.js , servertest.js  is configured to run on the binance testnet, youll need to get test net api keys and put your key and secret in the place holders before you run it, you can login here with your github account to get testnet keys  https://testnet.binance.vision/  the other script serverspot.js is configured to run on the Binance.com spot exchange. so youll need to make api keys for whatever acount you want your strategys to trade on 
 
 theres also a tool called tokenbalances.js which is just to pull your token balances from the test net  again you'll need to add your test net api key and secret to run it
 ............................................................................................................................................................................................................................................................................
