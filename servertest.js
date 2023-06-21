@@ -156,11 +156,11 @@ app.post('/webhook', (req, res) => {
       });
     }
   } else if (side === 'SELL') {
-    // Ignore the sell order if no buy order has been executed yet
-    //if (filledQuantity === null) {
-      //console.log('No buy order has been executed yet. Ignoring the sell order.');
-      //return;
-    //}
+    Ignore the sell order if no buy order has been executed yet
+    if (filledQuantity === null) {
+      console.log('No buy order has been executed yet. Ignoring the sell order.');
+      return;
+    }
 
     // If the filled quantity is less than the quantity specified in the sell order, sell the filled amount
     if (filledQuantity < quantity) {
