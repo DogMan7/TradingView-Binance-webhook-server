@@ -176,7 +176,7 @@ Start the Server: Once everything is set up, you can start the server by running
      node servertest.js   
 or
 
-     Node serverspot.js
+     node serverspot.js
 
      
     
